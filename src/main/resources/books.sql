@@ -1,0 +1,6 @@
+INSERT INTO books (name, description, release_date, price) VALUES
+                                                               ('The Silent Patient', 'A psychological thriller about a woman’s act of violence against her husband—and of the therapist obsessed with uncovering her motive.', '2019-02-05', 15),
+                                                               ('Atomic Habits', 'An easy & proven way to build good habits & break bad ones.', '2018-10-16', 12),
+                                                               ('To Kill a Mockingbird', 'A novel of warmth and humor despite dealing with serious issues of rape and racial inequality.', '1960-07-11', 10),
+                                                               ('1984', 'A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism.', '1949-06-08', 9),
+                                                               ('The Alchemist', 'A philosophical book about a shepherd’s journey to fulfill his personal legend.', '1988-04-15', 11);
