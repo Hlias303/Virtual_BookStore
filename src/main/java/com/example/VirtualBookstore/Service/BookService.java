@@ -8,14 +8,15 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.awt.print.Book;
 import java.io.IOException;
 import java.util.List;
 
 @Service
 public class BookService {
+
     @Autowired
     BookRepo repo;
-
 
     public List<Books> ShowAllBooks() {
         return repo.findAll(Sort.by("id"));
@@ -44,8 +45,12 @@ public class BookService {
         repo.save(book);
     }
 
-
     public Books GetBookByID(int bookID) {
         return repo.findById(bookID).orElse(new Books());
+    }
+
+    public List<Books> search(String keyword) {
+        return repo.SearchBook(keyword);
+
     }
 }

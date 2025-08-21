@@ -11,4 +11,8 @@ import java.util.List;
 @Repository
 public interface BookRepo extends JpaRepository<Books,Integer> {
     List<Books> findByIdIn(List<Integer> ids);
+
+    @Query("SELECT b from Books b WHERE "+
+    "LOWER(b.name) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+    List<Books> SearchBook(String keyword);
 }

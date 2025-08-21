@@ -66,6 +66,11 @@ public class BookController {
         service.DeleteBook(id,book);
      }
 
+     @GetMapping("/Books/search")
+     public List<Books> SearchBook(@RequestParam String keyword){
+         return service.search(keyword);
+     }
+
      @GetMapping("/Recommendations")
     public List<Books> Recommendations(){
          Authentication auth = SecurityContextHolder.getContext().getAuthentication();
