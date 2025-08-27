@@ -28,7 +28,7 @@ function Header() {
     }
 
     return (<nav className='nav'>
-      <Link to="/Home" className='site-title'>Virtual Book Store</Link>
+      <Link to="/" className='site-title'>Virtual Book Store</Link>
       <ul>
         <li>
           <Link to='/Books'>Books</Link>
@@ -42,7 +42,7 @@ function Header() {
         </li>
         ) : (
         <li>
-          <Link to="/Home" onClick={Logout}>Logout</Link>
+          <Link to="/" onClick={Logout}>Logout</Link>
         </li>
         )}
       </ul>

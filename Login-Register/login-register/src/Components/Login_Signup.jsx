@@ -14,6 +14,7 @@ export default function Login_Signup() {
     // const[action,SetAction] = useState("Login");
     const [username,SetUsername] = useState("");
     const [password,SetPassword] = useState("");
+    const [errMsg, setErrMsg] = useState("");
     const navigate = useNavigate();
     const cookies = new Cookies();
 
@@ -51,6 +52,13 @@ export default function Login_Signup() {
             }
         } catch(error){
             console.error(error);
+            if (!error.response) {
+                setErrMsg("No server Response");
+            } else if (error.response.status === 403) {
+                setErrMsg("Wrong Name or Password. Try Again")
+            } else {
+                setErrMsg("Login Failed");
+            }
         }
 
     }
@@ -61,6 +69,9 @@ export default function Login_Signup() {
     <div className='container'>
         <div className="header">
             <div className="text">Login</div>
+            <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">
+                {errMsg}
+                </p>
             <div className="underline"></div>
         </div>
         <div className="inputs">
@@ -72,7 +83,7 @@ export default function Login_Signup() {
             </div>
             <div className="input">
             <img src={password_icon} alt="" />
-            <input type="text" placeholder='Password' value={password} onChange={
+            <input type="password" placeholder='Password' value={password} onChange={
                 (e) => SetPassword(e.target.value)
             }/>
             </div>  
